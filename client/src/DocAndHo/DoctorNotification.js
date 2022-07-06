@@ -42,11 +42,11 @@ function DoctorNotification({open, close, header}) {
 
     const payBtn = async () => {
 
-        toastId.current = toast("Wait.. Paying tokens… ", {autoClose: false});
+        toastId.current = toast("Processing your payment....", {autoClose: false});
 
         await payment().then(() => {
 
-            toast.update(toastId.current, { render: 'Pay tokens successfully!', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 3000});
+            toast.update(toastId.current, { render: 'Transaction Successful!', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 3000});
 
         })
 

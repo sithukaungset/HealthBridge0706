@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import KyuHeader from '../Patient/Header';
 import SideMenu from './SideMenu';
@@ -10,6 +11,7 @@ function Doctor() {
     const CODE = 1;
     return (
         <div className="dotor_container">
+            <ToastContainer />
             <KyuHeader />
             <div className='doctor_main'>
                 <div className='doctor_content'>

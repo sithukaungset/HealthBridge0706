@@ -33,12 +33,16 @@ const UserModal = (props) => {
         <section style={{margin:"auto"}}>
         <br></br>
         <br></br>
-        <a style={{fontSize:"20px",marginLeft:"140px"}}>Name: {users[0].patientName} </a>
+        <a style={{fontSize:"20px",marginLeft:"70px"}}>Name: {users[0].patientName} </a>
         <br></br>
         <a style={{fontSize:"20px",marginLeft:"70px"}}>Phone number: {users[0].phonenumber} </a>
         <br></br>
-        <a style={{fontSize:"22px",marginLeft:"30px"}}>
+        <a style={{fontSize:"20px",marginLeft:"70px"}}>
          AccountBalance: {users[0].checkingBalance} HBT
+        </a>
+        <br></br>
+        <a style={{fontSize:"15px",marginLeft:"240px"}}>
+         (Health Bridge Token)
         </a>
         <br></br>
         <br></br>

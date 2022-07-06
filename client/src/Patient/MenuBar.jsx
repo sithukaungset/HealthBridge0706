@@ -7,9 +7,9 @@ import { faBell } from "@fortawesome/free-solid-svg-icons";
 function MenuBar({setState}) {
 const menu = [
 
-  { icon: "fa fa-solid fa-hospital", name: "My Records"},
-  { icon: "fa fa-solid fa-address-card", name: "My transactions"},
-  { icon: "fa fa-solid fa-chart-bar", name: "Predictions"},
+  { icon: "fa fa-solid fa-hospital", name: "My PHR"},
+  { icon: "fa fa-solid fa-address-card", name: "Transaction History"},
+  { icon: "fa fa-solid fa-chart-bar", name: "Healthcare AI"},
   { icon: "fa fa-solid fa-chart", name: "My wearable device"}
   ]
   const onClickBtn = (event, key) => {

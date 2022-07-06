@@ -39,9 +39,9 @@ function HospitalPatients() {
             <div className='hospital_info_container'>
                 <div className='title'>{hospital ? hospital.name : <></>}</div>
                 <div className='address'>
-                    {hospital ? hospital.address[0].line[0] : <></>}
+                    Location : {hospital ? hospital.address[0].line[0] : <></>}
                 </div>
-                <div className='telecom'>{hospital ? hospital.telecom[0].value : <></>}</div>
+                <div className='telecom'> Contact : {hospital ? hospital.telecom[0].value : <></>}</div>
             </div>
             <ItemPatient patients={patientList} />
         </div>

@@ -3,6 +3,7 @@ import Menubar from './MenuBar';
 import Menubar_nav from './Menubar_nav';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import "../css/PatientRecord.css"
 
 
@@ -13,6 +14,7 @@ function Patient() {
 
     return (
         <div className="hospital">
+            <ToastContainer />
             <Header email={email}/>
             <div className='hospital_main'>
                 <div className='hospital_content'>

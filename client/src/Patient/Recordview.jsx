@@ -18,7 +18,7 @@ function Recordview() {
                     <div className="phr_top_left">
                         <div className="col_1">
                             <Form.Group className="mb-3" controlId="pid">
-                                <Form.Label>PID</Form.Label>
+                                <Form.Label>Record ID</Form.Label>
                                 <Form.Control readOnly="readonly" type="text"  name="pid" value={recordview.id}/>
                             </Form.Group>
                         </div>
@@ -85,13 +85,13 @@ function Recordview() {
                     </div>
                     <div className="col_2">
                         <Form.Group className="mb-3" controlId="comment">
-                            <Form.Label>Adding comment</Form.Label>
+                            <Form.Label>Write a comment</Form.Label>
                             <Form.Control readOnly="readonly" as="textarea" rows={2} name="comment" value={recordview.extension[1].valueString}/>
                         </Form.Group>
                     </div>
                     <div className="col_3">
                         <Form.Group className="mb-3" controlId="assginer">
-                            <Form.Label>Assigner</Form.Label>
+                            <Form.Label>Hospital</Form.Label>
                             <Form.Control  readOnly="readonly" type="text" placeholder="Enter assigner" name="assigner" value={recordview.extension[3].valueString} />
                          </Form.Group>
                         <Form.Group className="mb-3" controlId="doctor">

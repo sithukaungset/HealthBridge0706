@@ -333,10 +333,10 @@ function HospitalSendPHR() {
     }
 
     const onClickSendHandler = async() => {
-        toastId.current = toast("Wait.. Sending PHR", {autoClose: false});
+        toastId.current = toast("Wait.. Registering PHR!", {autoClose: false});
         await sendPHR()
         await postOnChain().then(() => {
-            toast.update(toastId.current, { render: 'Sending success', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 5000});
+            toast.update(toastId.current, { render: 'Registered Successfully', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 5000});
             resetForm();
         })
 
@@ -350,7 +350,7 @@ function HospitalSendPHR() {
                     <div className="phr_top_left">
                         <div className="col_1">
                             <Form.Group className="mb-3" controlId="pid">
-                                <Form.Label>PID</Form.Label>
+                                <Form.Label>Record ID</Form.Label>
                                 <Form.Control type="text" placeholder="Enter PID" name="pid" value={formData.pid}
                                 onChange={changeHandler}/>
                             </Form.Group>
@@ -437,14 +437,14 @@ function HospitalSendPHR() {
                     </div>
                     <div className="col_2">
                         <Form.Group className="mb-3" controlId="comment">
-                            <Form.Label>Adding comment</Form.Label>
+                            <Form.Label>Write a comment</Form.Label>
                             <Form.Control as="textarea" rows={2} name="comment" value={formData.comment}
                             onChange={changeHandler}/>
                         </Form.Group>
                     </div>
                     <div className="col_3">
                         <Form.Group className="mb-3" controlId="assginer">
-                            <Form.Label>Assigner</Form.Label>
+                            <Form.Label>Hospital</Form.Label>
                             <Form.Control type="text" placeholder="Enter assigner" name="assigner" value={formData.assigner}
                             onChange={changeHandler}/>
                          </Form.Group>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import RequestModal from './RequestModal';
+import RequestModal from './RequestModal.js';
 
 import axios from 'axios';
 
@@ -104,7 +104,7 @@ function ItemResult({ item }) {
 
                 <div className="pid">
 
-                    PID: {item.resource.id}
+                    Record ID: {item.resource.id}
 
                 </div>
 
@@ -122,7 +122,7 @@ function ItemResult({ item }) {
 
                 <div className="assigner">
 
-                    Assigner: {item.resource.extension[1] && item.resource.extension[1].valueString}
+                    Hospital: {item.resource.extension[1] && item.resource.extension[1].valueString}
 
                 </div>
 

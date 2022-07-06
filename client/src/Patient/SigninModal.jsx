@@ -1,8 +1,11 @@
-import React , { useState } from "react";
+import React , { useState, useRef } from "react";
 import { useNavigate } from 'react-router';
 import { Modal, Form } from "react-bootstrap";
 import SignupModal from "./SignupModal";
 import axios from 'axios';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SigninModal = ({ show, onHide }) => {
@@ -15,13 +18,18 @@ const SigninModal = ({ show, onHide }) => {
 });
 
 const BASE_URL = "http://203.247.240.226:22650/api"
+
+const toastId  = useRef();
+
 const SignupBlock = async () => {
 
   await axios.post(`${BASE_URL}/createAcc`, {
     "AccountID": "jhikyuinn",
-    "PersonName": "jhikyuinn", 
+    "PersonName": "jhikyuinn",
     "CryptoBalance": 10000000,
-}).then(console.log);
+}).then((res) => {
+  console.log(res);
+});
 }
 
 
@@ -29,7 +37,7 @@ const SignupHospital = async () => {
 
   await axios.post(`${BASE_URL}/createAcc`, {
     "AccountID": "INLab",
-    "PersonName": "INLab-Medical", 
+    "PersonName": "INLab-Medical",
     "CryptoBalance": 10000000,
 }).then(console.log);
 }
@@ -38,7 +46,7 @@ const SignupDoctor = async () => {
 
   await axios.post(`${BASE_URL}/createAcc`, {
     "AccountID": "James",
-    "PersonName": "James", 
+    "PersonName": "James",
     "CryptoBalance": 10000000,
 }).then(console.log);
 }
@@ -50,28 +58,36 @@ const onChangeHandler = (e) => {
     })
 }
 const onClickBtn = async() => {
+ 
+    toastId.current = toast("Wait... Trying to sign in", {autoClose: false});
+
     if(user.email ==="jhikyuinn") {
-    await SignupBlock();
-    navigate(`/patient/${user.email}`, {id: user.email});
-    
-    
-}
+      await SignupBlock().then(() => {
+        toast.update(toastId.current, { render: 'Logged-in!', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 3000});
+      })
+      navigate(`/patient/${user.email}`, {id: user.email});
+    }
     else if(user.email === "James") {
-      await SignupDoctor();  
+      await SignupDoctor().then(() => {
+        toast.update(toastId.current, { render: 'Logged-in!', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 3000});
+      })  
       navigate(`/doctor/${user.email}`, {id: user.email})
-        
+       
     }
     else if(user.email === "INLab") {
-      await SignupHospital();
+      await SignupHospital().then(() => {
+        toast.update(toastId.current, { render: 'Logged-in!', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 3000});
+      })
       navigate(`/hospital/${user.email}`, {id: user.email});
-      
-  }
+     
+    }
     else if(user.email !== undefined) {
       navigate(`/hospital/${user.email}`, {id: user.email});
-  }
+    }
 }
   return (
     <>
+    <ToastContainer />
     <SignupModal
     show={signupModalOn}
     onHide={() => setSignupModalOn(false)}
@@ -106,7 +122,7 @@ const onClickBtn = async() => {
             <a onClick={() => setSignupModalOn(true)} className="my_btn">
               Signup
             </a>
-            
+           
           </Form>
         </Modal.Body>
     </Modal>
