@@ -1,0 +1,117 @@
+
+  .modal > section {
+    height:250px;
+    width: 80%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-style:1px black;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    overflow: hidden;
+  }
+  .modal > section > main {
+    padding: 16px;
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+  }
+
+  .openbackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .modal.openModal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+
+  }
+  @keyframes modal-show {
+    from {
+      opacity: 0;
+      margin-top: -50px;
+    }
+    to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  @keyframes modal-bg-show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .dollaricon{
+    margin-left: 5%;
+    color:#ded080;
+    width:40px;
+    height:40px;
+  }
+  .my_info {
+    margin-left:80%;
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(134, 193, 217);
+    display: inline-block;
+    text-decoration-line: none;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+  }
+  .my_coin {
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(134, 193, 217);
+    display: inline-block;
+    text-decoration-line: none;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 1em;
+  }
+
+  .User{
+    margin-left: 45vw;
+    font-size: 20px;
+    color: white;
+  }
+
+  .User:hover{
+    color:rgb(80, 118, 133);
+    font-size: 20px;
+    color: white;
+  }
+  .bellicon{
+    margin-left: 30px;
+    color:white;
+    width:30px;
+    height:30px;
+  }
+  .bellicon:hover{
+    margin-left: 30px;
+    color:rgb(80, 118, 133);
+    width:30px;
+    height:30px;
+  }
+  .coininfo{
+    color:black;
+    text-decoration-line: none;
+    font-size: 25px;
+
+  }
+  
+  
