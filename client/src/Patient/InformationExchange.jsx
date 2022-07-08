@@ -6,6 +6,10 @@ import Header from './Header'
 import useCollapse from 'react-collapsed';
 import "../css/InformationExchange.css";
 import { useEffect } from 'react';
+import { useRef } from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Recordview from './Recordview';
 
 const getFormattedPrice = (price) => `${price.toFixed(2)}`;
@@ -99,16 +103,19 @@ const handleOnChange = (position) => {
 
   setTotal(totalPrice);
   };
+  const toastId  = useRef();
 
   async function Exchangeresponse(){
+    toastId.current = toast("Sending Response back.....", {autoClose: false});
+
     await axios.put(`http://203.247.240.226:22650/api/responsePHR`,{
       "EHRNumber":"EHR1206",
       "doctor":"James",
       "token":1.64,
       "responsedata":"whole PHR"
     }).then((res) => {
-      window.alert("Success");
-  })
+      toast.update(toastId.current, { render: 'Success', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 5000});
+    })
 }
   
   const location = useLocation();
@@ -119,6 +126,7 @@ return (
   <Header/>
   <div className="structure">
         <div className="UserRequestData">
+        <ToastContainer />
           <br></br>
           <h3>Required Data by Doctor James </h3>
           <br></br>

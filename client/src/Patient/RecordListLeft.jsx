@@ -28,7 +28,7 @@ function RecordListLeft({ item, index }) {
                 Symptom: {item.resource.extension[0].valueString}
             </div>
             <div className='createdAt'>
-                 Date Created: {item.resource.extension[5] ? item.resource.extension[5].valueString : <></>}
+                 Date: {item.resource.extension[5] ? item.resource.extension[5].valueString : <></>}
             </div>
             <a className='my_view' onClick={() => getRecordsview()}  style={{marginLeft:"90%"}} variant="outline-success">View</a>
         </div>

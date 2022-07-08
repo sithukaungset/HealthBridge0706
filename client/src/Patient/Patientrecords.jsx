@@ -2,11 +2,13 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import Search from "./Search"
 import RecordsList from "./RecordsList"
-
+import { useParams } from 'react-router-dom';
 import "../css/PatientRecord.css"
 
 function Patientrecords() {
 
+  const {id} = useParams();
+  console.log({id});
   const [record, setRecord] = useState([]);
 
   async function getRecords() {

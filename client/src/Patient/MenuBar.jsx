@@ -1,16 +1,11 @@
 import '../css/Menubar.css';
-import { faFileMedical } from "@fortawesome/free-solid-svg-icons";
-import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
-import { faChartLine } from "@fortawesome/free-solid-svg-icons";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 function MenuBar({setState}) {
 const menu = [
 
-  { icon: "fa fa-solid fa-hospital", name: "My PHR"},
+  { icon: "fa fa-solid fa-file-medical", name: "My PHR"},
   { icon: "fa fa-solid fa-address-card", name: "Transaction History"},
   { icon: "fa fa-solid fa-chart-bar", name: "Healthcare AI"},
-  { icon: "fa fa-solid fa-chart", name: "My wearable device"}
   ]
   const onClickBtn = (event, key) => {
     setState(key);

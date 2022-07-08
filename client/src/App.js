@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Home from './Patient/Home';
@@ -7,9 +7,9 @@ import Recordview from "./Patient/Recordview";
 import Hospital from './DocAndHo/Hospital';
 import Doctor from './DocAndHo/Doctor';
 import InformationExchange from './Patient/InformationExchange';
-//import ML from './MachineLearning/src/components/ML';
 
 import './App.css';
+import Wearabledevice from './Wearabledevice/Wearabledevice';
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
                 <Route path="/information" exact element={<InformationExchange/>} />
                 <Route path="/hospital/:id" element={<Hospital />} />
                 <Route path="/doctor/:id" element={<Doctor />} />
+                <Route path="/wearable/:id" element={<Wearabledevice />} />
               </Routes>
               </Router>
             </div>

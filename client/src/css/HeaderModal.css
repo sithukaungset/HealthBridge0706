@@ -70,6 +70,20 @@
     color: white;
     font-size: 15px;
     text-align: center;
+    line-height: 30px;
+  }
+  .my_info:hover {
+    margin-left:80%;
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(134, 193, 217);
+    display: inline-block;
+    text-decoration-line: none;
+    color: rgb(80, 118, 133);
+    font-size: 15px;
+    text-align: center;
+    line-height: 30px;
   }
   .my_coin {
     width: 90px;

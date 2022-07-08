@@ -1,7 +1,10 @@
 import axios from "axios";
 import {useNavigate} from "react-router";
+import { useParams } from 'react-router-dom';
 
 function RecordListRight({ item, index }) {
+    const {id} = useParams();
+    console.log({id});
     const navigate=new useNavigate();
     async function getRecordsview(){
         await axios.get(`http://203.247.240.226:8080/fhir/Patient/${item.resource.id}`).then((res) => {

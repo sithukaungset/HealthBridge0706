@@ -1,17 +1,17 @@
-import Search from "./Search"
+// import Search from "./Search"
 
-import '../css/PatientTransaction.css';
+// import '../css/PatientTransaction.css';
 
-function patienttransactions() {
-  return (
-      <div>
-          <Search></Search>
-        </div>
+// function patienttransactions() {
+//   return (
+//       <div>
+//           <Search></Search>
+//         </div>
   
   
-  );
-  }
+//   );
+//   }
   
 
 
-export default patienttransactions;
+// export default patienttransactions;

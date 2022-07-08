@@ -1,12 +1,16 @@
 import { Form, Button } from "react-bootstrap";
 import { useLocation } from 'react-router-dom';
 import Header from "./Header";
+import { useParams } from 'react-router-dom';
 
 import "../css/PatientRecord.css"
 
 function Recordview() {
     const location = useLocation();
     const {recordview} =location.state;
+    const {id} = useParams();
+    console.log({id});
+
 
     return (
         <div>
