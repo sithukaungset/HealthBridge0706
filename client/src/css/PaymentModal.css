@@ -1,0 +1,39 @@
+.total_amount {
+
+    font-size: 1.2em;
+
+    margin-bottom: 5px;
+
+}
+
+.token_amount {
+
+    margin-top: 2%;
+
+}
+
+ 
+
+.token_amount > .mb-3 > .amount_label > span {
+
+    font-size: 1.2em;
+
+}
+
+ 
+
+.sender_name {
+
+    margin-top: 1%;
+
+    font-size: 1.2em;
+
+}
+
+ 
+
+.receiver_name {
+
+    font-size: 1.2em;
+
+}

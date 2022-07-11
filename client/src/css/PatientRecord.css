@@ -1,27 +1,27 @@
 /*Recordview.jsx*/
 
 .my_btn {
-  width: 160px;
-  height: 40px;
+  width: 11vw;
+  height: 4.5vh;
   border-radius: 10px;
   background-color: rgb(134, 193, 217);
   display: inline-block;
   text-decoration-line: none;
   color: white;
-  font-size: 17px;
+  font-size: 1.1em;
   text-align: center;
   margin-left: 1em;
   line-height: 40px;
 }
 .my_btn:hover {
-  width: 160px;
-  height: 40px;
+  width: 11vw;
+  height: 4.5vh;
   border-radius: 10px;
   background-color: rgb(134, 193, 217);
   display: inline-block;
   text-decoration-line: none;
   color:rgb(80, 118, 133);
-  font-size: 17px;
+  font-size: 1.1em;
   text-align: center;
   margin-left: 1em;
   line-height: 40px;
@@ -57,10 +57,15 @@
     padding-left: 10px;
     width: 49%;
   }
+
+  .phr_top_right > .title {
+    font-size: 1.4em;
+    margin-bottom: 1%;
+  }
   
   .phr_top_right > .col_2 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   
   .phr_top_right > .col_2 > .mb-3 {
@@ -94,30 +99,31 @@
   
   /*RecordsList.jsx*/
   .my_view {
-    width: 60px;
-    height: 30px;
+    width: 4.5vw;
+    height: 3.5vh;
     border-radius: 10px;
     background-color: rgb(134, 193, 217);
     display: inline-block;
     text-decoration-line: none;
     color: white;
-    font-size: 13px;
+    font-size: 0.85em;
     text-align: center;
     margin-left: 1em;
     line-height: 30px;
   }
   .my_view:hover {
-    width: 60px;
-    height: 30px;
+    width: 4.5vw;
+    height: 3.5vh;
     border-radius: 10px;
     background-color: rgb(134, 193, 217);
     display: inline-block;
     text-decoration-line: none;
     color:rgb(80, 118, 133);
-    font-size: 13px;
+    font-size: 0.85em;
     text-align: center;
     margin-left: 1em;
     line-height: 30px;
+    cursor: pointer;
   }
 
 .hospital {
@@ -228,8 +234,7 @@
   margin: 0% 2% 2% 2%;
   display: flex;
   flex-direction: row;
-  columns: 2 auto 
-  ;
+  columns: 2 auto;
 }
 
 .patient_list_left {
@@ -254,6 +259,7 @@
   padding: 2.5% 2.5% 2.5% 2.5%;
 }
 
+/* Doctor */
 .dotor_container {
   height: 100%;
 }
@@ -278,7 +284,7 @@
   width: 100%;
 }
 
-.doctor_content > .right_content > .content {
+.doctor_content > .right_content > .d_h_content {
   height: 100%;
   overflow: auto;
 }
@@ -292,7 +298,8 @@
 }
 
 .doctor_reqeust > .request_container {
- 
+  display: flex;
+  flex-direction: row;
   width: 50%;
   margin-top: 2%;
   margin-left: 2%;
@@ -356,4 +363,3 @@
 .item_result > .colum_2_item > .btn_request {
   margin-left: auto;
 }
-

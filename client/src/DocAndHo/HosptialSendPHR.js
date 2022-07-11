@@ -135,122 +135,181 @@ function HospitalSendPHR() {
     }
 
 
+    // const postCondition = async (prevResult) => {
+
+    //     if(prevResult !== undefined) {
+
+    //         await axios.put(`${BASE_URL}/Condition/${formData.pid}`, {
+    //             "resourceType": "Condition",
+    //             "id": formData.pid,
+    //             "extension": [
+    //                 {
+    //                     "url": "doctor",
+    //                     "valueString": formData.doctorName
+    //                 },
+    //                 {
+    //                     "url": "assigner",
+    //                     "valueString": formData.assigner
+    //                 },
+    //                 {
+    //                     "url": "createdAt",
+    //                     "valueString": formData.createdAt
+    //                 }
+    //             ],
+    //             "clinicalStatus": {
+    //                 "coding": [
+    //                 {
+    //                     "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+    //                     "code": "active"
+    //                 }
+    //              ]
+    //             },
+    //             "verificationStatus": {
+    //                 "coding": [
+    //                 {
+    //                     "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+    //                     "code": "confirmed"
+    //                 }
+    //              ]
+    //             },
+    //             "category": [
+    //                 {
+    //                 "coding": [
+    //                     {
+    //                         "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+    //                         "code": "encounter-diagnosis",
+    //                         "display": "Encounter Diagnosis"
+    //                     }
+    //                  ]
+    //                 }
+    //             ],
+    //             "code": {
+    //                 "text": formData.symptom
+    //             },
+    //             "subject": {
+    //                 "reference": `Patient/${formData.pid}`
+    //             }
+    //         }).then((res) => {
+    //             console.log(res);
+    //         })
+    //     }
+    // }
+
     const postCondition = async (prevResult) => {
-
         if(prevResult !== undefined) {
-
             await axios.put(`${BASE_URL}/Condition/${formData.pid}`, {
-
                 "resourceType": "Condition",
-
                 "id": formData.pid,
-
-                "extension": [
-
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f201</p><p><b>identifier</b>: 12345</p><p><b>clinicalStatus</b>: Resolved <span>(Details : {http://terminology.hl7.org/CodeSystem/condition-clinical code 'resolved' = 'Resolved)</span></p><p><b>verificationStatus</b>: Confirmed <span>(Details : {http://terminology.hl7.org/CodeSystem/condition-ver-status code 'confirmed' = 'Confirmed)</span></p><p><b>category</b>: Problem <span>(Details : {SNOMED CT code '55607006' = 'Problem', given as 'Problem'}; {http://terminology.hl7.org/CodeSystem/condition-category code 'problem-list-item' = 'Problem List Item)</span></p><p><b>severity</b>: Mild <span>(Details : {SNOMED CT code '255604002' = 'Mild', given as 'Mild'})</span></p><p><b>code</b>: Fever <span>(Details : {SNOMED CT code '386661006' = 'Fever', given as 'Fever'})</span></p><p><b>bodySite</b>: Entire body as a whole <span>(Details : {SNOMED CT code '38266002' = 'Body as a whole', given as 'Entire body as a whole'})</span></p><p><b>subject</b>: <a>Roel</a></p><p><b>encounter</b>: <a>Encounter/f201</a></p><p><b>onset</b>: 02/04/2013</p><p><b>abatement</b>: around April 9, 2013</p><p><b>recordedDate</b>: 04/04/2013</p><p><b>recorder</b>: <a>Practitioner/f201</a></p><p><b>asserter</b>: <a>Practitioner/f201</a></p><h3>Evidences</h3><table><tr><td>-</td><td><b>Code</b></td><td><b>Detail</b></td></tr><tr><td>*</td><td>degrees C <span>(Details : {SNOMED CT code '258710007' = 'degrees C', given as 'degrees C'})</span></td><td><a>Temperature</a></td></tr></table></div>"
+                },
+                "identifier": [
                     {
-
-                        "url": "doctor",
-
-                        "valueString": formData.doctorName
-
-                    },
-
-                    {
-
-                        "url": "assigner",
-
-                        "valueString": formData.assigner
-
-                    },
-
-                    {
-
-                        "url": "createdAt",
-
-                        "valueString": formData.createdAt
-
+                        "value": "12345"
                     }
-
                 ],
-
                 "clinicalStatus": {
-
                     "coding": [
-
-                    {
-
-                        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-
-                        "code": "active"
-
-                    }
-
-                 ]
-
-                },
-
-                "verificationStatus": {
-
-                    "coding": [
-
-                    {
-
-                        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-
-                        "code": "confirmed"
-
-                    }
-
-                 ]
-
-                },
-
-                "category": [
-
-                    {
-
-                    "coding": [
-
                         {
-
-                            "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-
-                            "code": "encounter-diagnosis",
-
-                            "display": "Encounter Diagnosis"
-
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
                         }
-
-                     ]
-
-                    }
-
-                ],
-
-                "code": {
-
-                    "text": formData.symptom
-
+                    ]
                 },
-
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "55607006",
+                                "display": "Problem"
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "problem-list-item"
+                            }
+                        ]
+                    }
+                ],
+                "severity": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "255604002",
+                            "display": "Mild"
+                        }
+                    ]
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "386661006",
+                            "display": "Fever"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "38266002",
+                                "display": "Entire body as a whole"
+                            }
+                        ]
+                    }
+                ],
                 "subject": {
-
-                    "reference": `Patient/${formData.pid}`
-
-                }
-
-    
-
+                    "reference": `Patient/${formData.pid}`,
+                    "display": formData.name
+                },
+                // "encounter": {
+                //     "reference": "Encounter/f201"
+                // },
+                "onsetDateTime": "2013-04-02",
+                "abatementString": "around April 9, 2013",
+                "recordedDate": "2013-04-04",
+                "recorder": {
+                    "reference": `Practitioner/${formData.doctorName}`
+                },
+                "asserter": {
+                    "reference": `Practitioner/${formData.doctorName}`
+                },
+                "evidence": [
+                    {
+                        "code": [
+                            {
+                                "coding": [
+                                    {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "258710007",
+                                    "display": "degrees C"
+                                    }
+                                ]
+                            }
+                        ]
+                    // "detail": [
+                    //     {
+                    //     "reference": "Observation/f202",
+                    //     "display": "Temperature"
+                    //     }
+                    // ]
+                    }
+                ]
             }).then((res) => {
-
                 console.log(res);
-
             })
-
         }
-
-        
-
     }
 
     const phrHash = (pid) => {
@@ -333,10 +392,10 @@ function HospitalSendPHR() {
     }
 
     const onClickSendHandler = async() => {
-        toastId.current = toast("Wait.. Registering PHR!", {autoClose: false});
+        toastId.current = toast("Wait.. Sending PHR", {autoClose: false});
         await sendPHR()
         await postOnChain().then(() => {
-            toast.update(toastId.current, { render: 'Registered Successfully', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 5000});
+            toast.update(toastId.current, { render: 'Sending success', type: toast.TYPE.SUCCESS, position: toast.POSITION.TOP_RIGHT, autoClose: 5000});
             resetForm();
         })
 
@@ -350,7 +409,7 @@ function HospitalSendPHR() {
                     <div className="phr_top_left">
                         <div className="col_1">
                             <Form.Group className="mb-3" controlId="pid">
-                                <Form.Label>Record ID</Form.Label>
+                                <Form.Label>PID</Form.Label>
                                 <Form.Control type="text" placeholder="Enter PID" name="pid" value={formData.pid}
                                 onChange={changeHandler}/>
                             </Form.Group>
@@ -437,14 +496,14 @@ function HospitalSendPHR() {
                     </div>
                     <div className="col_2">
                         <Form.Group className="mb-3" controlId="comment">
-                            <Form.Label>Write a comment</Form.Label>
+                            <Form.Label>Adding comment</Form.Label>
                             <Form.Control as="textarea" rows={2} name="comment" value={formData.comment}
                             onChange={changeHandler}/>
                         </Form.Group>
                     </div>
                     <div className="col_3">
                         <Form.Group className="mb-3" controlId="assginer">
-                            <Form.Label>Hospital</Form.Label>
+                            <Form.Label>Assigner</Form.Label>
                             <Form.Control type="text" placeholder="Enter assigner" name="assigner" value={formData.assigner}
                             onChange={changeHandler}/>
                          </Form.Group>
